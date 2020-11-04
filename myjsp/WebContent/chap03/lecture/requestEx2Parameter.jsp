@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!--input에 적힌 내용이 전송버튼에 의해 전송이 되려면 form으로 감싸야 함  -->
 <form>
  <input type="text" name="id"/> <br />
  <input type="text" name="pw"/> <br />
