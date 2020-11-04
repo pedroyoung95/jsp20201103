@@ -38,18 +38,25 @@ for(int i = 0; i < selectNums.length; i++) {
 <br />
 
 맞춘 갯수:
-<%List<Integer> sixNum = new ArrayList<>();
+<%
+List<Integer> sixNum = new ArrayList<>();
 for(String str : selectNums) {
 	Integer intNum = Integer.valueOf(str.substring(1, str.length()));
 	sixNum.add(intNum);
 }
 
 int count = 0;
-for(Integer lottoNum : lotto) {
+/* for(Integer lottoNum : lotto) {
 	for(Integer selectNum : sixNum) {
 		if(lottoNum.equals(selectNum)) {
 			count++;
 		}
+	}
+} */
+
+for(Integer selectNum : sixNum) {
+	if(lotto.contains(selectNum)) {
+		count++;
 	}
 }
 out.print(count + "개 맞았습니다.");
