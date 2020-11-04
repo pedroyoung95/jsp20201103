@@ -13,12 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-String searchResult = request.getParameter("search");
-out.print(searchResult);
 
-Map<String, String> idandpw = new HashMap<>();
-
-%>
 </body>
 </html>
