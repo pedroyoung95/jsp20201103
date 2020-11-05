@@ -25,5 +25,6 @@ include 전 name 파라미터 값: <%= request.getParameter("name") %>
 
 include 후 name 파라미터 값: <%= request.getParameter("name") %>
 <!--jsp:param으로 보낸 파라미터 값은 일회성으로, include과정이 끝난 후에는 사라짐  -->
+<!--query string으로 넣은 파라미터 값은 남아있음  -->
 </body>
 </html>

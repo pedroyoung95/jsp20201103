@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.*"%>
+<%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>body ex2</h1>
 
 request 참조 값 : <%= System.identityHashCode(request) %>
 <br />
@@ -21,8 +22,6 @@ request 참조 값 : <%= System.identityHashCode(request) %>
 <%= request instanceof ServletRequestWrapper %>
 
 <jsp:include page="navbarEx2.jsp"></jsp:include>
-<br />
-<%@ include file="navbarEx2.jsp" %>
 
 </body>
 </html>
