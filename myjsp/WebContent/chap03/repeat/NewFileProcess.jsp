@@ -19,41 +19,20 @@ idandpw.put("abc", "1111");
 
 if(idandpw.containsKey(request.getParameter("id"))) {
 	if(idandpw.get("abc").equals(request.getParameter("pw"))) { %>
-<div class="container-fluid p-0">
-<nav class="navbar navbar-expand-sm bg-secondary ">
-<a class="navbar-brand text-white" href="#">Logo</a>
+	
+<jsp:include page="commonSet.jsp" flush="true" />
 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-    
-      <a class="nav-link text-white" href="http://www.naver.com" target="_blank">Naver</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" href="http://www.daum.net" target="_blank">Daum</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" href="#">Link 3</a>
-    </li>
-    <!-- Dropdown -->
-    <li class="nav-item dropdown ">
-    
-      <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-        Dropdown link
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Link 1</a>
-        <a class="dropdown-item" href="#">Link 2</a>
-        <a class="dropdown-item" href="#">Link 3</a>
-      </div>
-    </li>
-    <form class="form-inline" action="NewFileProcess.jsp">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
-    <button class="btn btn-success" type="submit">Search</button>
-    </form>
-  </ul>
-</nav>
+<div class="container-fluid mt-2">
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="chicago.jpg" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
 </div>
+</div>
+
 	<%} else {out.print("비밀번호가 틀렸습니다.");} %>
 	<br />
 	<a href="NewFile.jsp">돌아가기</a>
