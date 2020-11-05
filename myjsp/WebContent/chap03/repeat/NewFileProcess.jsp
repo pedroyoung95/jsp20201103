@@ -14,11 +14,14 @@
 </head>
 <body>
 <%
-String searchResult = request.getParameter("search");
-out.print(searchResult);
-
 Map<String, String> idandpw = new HashMap<>();
+idandpw.put("abc", "1111");
 
+if(idandpw.containsKey(request.getParameter("id"))) {
+	if(idandpw.get("abc").equals(request.getParameter("pw"))) {
+		out.print("로그인 되었습니다.");
+	} else {out.print("비밀번호가 틀렸습니다.");}
+} else {out.print("아이디가 틀렸습니다.");}
 %>
 </body>
 </html>

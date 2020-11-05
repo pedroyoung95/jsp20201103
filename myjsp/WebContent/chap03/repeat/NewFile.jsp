@@ -49,8 +49,11 @@
 </div>
 
 <div class="container-fluid mt-2">
+<form action="NewFileProcess.jsp">
 <input type="text" placeholder="id" name="id" /><br />
-<input type="text" placeholder="password" name="pw" />
+<input type="password" placeholder="password" name="pw" />
+<input type="submit" value="로그인" />
+</form>
 </div>
 </body>
 </html>
