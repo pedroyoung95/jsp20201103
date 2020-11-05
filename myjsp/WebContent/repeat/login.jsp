@@ -12,6 +12,8 @@
 <title>My first Web</title>
 </head>
 <body>
+<div class="container-fluid">
+</div>
 
 <%@ include file="/WEB-INF/repeat/navbar.jsp" %>
 
