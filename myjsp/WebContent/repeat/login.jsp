@@ -22,5 +22,7 @@
 <input type="submit" value="로그인" />
 </form>
 </div>
+
+<%@ include file="/WEB-INF/repeat/footer.jsp" %>
 </body>
 </html>
