@@ -18,7 +18,7 @@
 
 <div class="container-fluid mt-3">
   <div class="row">
-    <div class="col">
+    <div class="col text-center">
       One of three columns
     </div>
     
@@ -46,7 +46,7 @@
 <%@ include file="/WEB-INF/repeat/footer.jsp" %>
 
     </div>
-    <div class="col">
+    <div class="col text-center">
       One of three columns
     </div>
   </div>
