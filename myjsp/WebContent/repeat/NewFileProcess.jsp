@@ -20,7 +20,7 @@ idandpw.put("abc", "1111");
 if(idandpw.containsKey(request.getParameter("id"))) {
 	if(idandpw.get("abc").equals(request.getParameter("pw"))) { %>
 	
-<jsp:include page="commonSet.jsp" flush="true" />
+<%@ include file="/WEB-INF/repeat/navbar.jsp"%>
 
 <div class="container-fluid mt-2">
 <div class="card" style="width:400px">
@@ -35,11 +35,11 @@ if(idandpw.containsKey(request.getParameter("id"))) {
 
 	<%} else {out.print("비밀번호가 틀렸습니다.");} %>
 	<br />
-	<a href="NewFile.jsp">돌아가기</a>
+	<a href="login.jsp">돌아가기</a>
 <%} else {
 	out.print("아이디가 틀렸습니다."); %>
 	<br />
-	<a href="NewFile.jsp">돌아가기</a>
+	<a href="login.jsp">돌아가기</a>
 <%}
 %>
 </body>
