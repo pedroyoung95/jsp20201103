@@ -13,13 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-contextPath : <%= request.getContextPath() %>
+<h1>contextPathEx2</h1>
+<jsp:include page="/chap04/lecture/contextPathEx2Sub.jsp"></jsp:include>
+<!--내부에서 접근시에는 컨텍스트경로를 포함시킬 필요X-->
+<!--'jsp:include' : 다른 jsp파일을 포함시키는 기능  -->
 <br />
-<a href="/myjsp3/chap04/lecture/bufferEx1.jsp">buffer</a>
-<br />
-<a href="<%= request.getContextPath() %>/chap04/lecture/bufferEx1.jsp">buffer</a>
-<!--contextPath를 직접 적으면 함부로 변경될 수 있으므로, getContextPath메소드 이용  -->
-
-<form action=""></form>
+<a href="<%= request.getContextPath() %>/chap04/lecture/contextPathEx2Sub.jsp">to sub.jsp</a>
+<!--외부에서 접근시에는 컨텍스트경로를 포함시켜야 함-->
 </body>
 </html>
