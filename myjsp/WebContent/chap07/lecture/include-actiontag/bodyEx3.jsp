@@ -13,16 +13,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>body ex1</h1>
+<%= request.getParameter("name") %>
 
-request 참조 값 : <%= System.identityHashCode(request) %>
-<br />
-<%= request instanceof HttpServletRequest %>
-<br />
-<%= request instanceof ServletRequestWrapper %>
+<jsp:include page="navbarEx3.jsp">
+	<jsp:param value="newvalue" name="newparam"></jsp:param>
+	<jsp:param value="newvalue2" name="newparam2"></jsp:param>
+</jsp:include>
+<!--파라미터 이름은 name에, 파라미터 값은 value에 넣어서 파라미터에 붙여서 보냄-->
 
-<jsp:include page="navbarEx2.jsp"></jsp:include>
-<br />
-<%@ include file="navbarEx2.jsp" %>
+<hr />
+<%= request.getParameter("newparam") %>
 
 </body>
 </html>

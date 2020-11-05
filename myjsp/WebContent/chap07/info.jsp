@@ -13,16 +13,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>제품번호</td>
+		<td>XXXX</td>
+	</tr>
+	<tr>
+		<td>가격</td>
+		<td>10,000원</td>
+	</tr>
+</table>
 
-request 참조 값 : <%= System.identityHashCode(request) %>
-<br />
-<%= request instanceof HttpServletRequest %>
-<br />
-<%= request instanceof ServletRequestWrapper %>
-
-<jsp:include page="navbarEx2.jsp"></jsp:include>
-<br />
-<%@ include file="navbarEx2.jsp" %>
-
+<jsp:include page="infoSub.jsp">
+	<jsp:param name="type" value="B"></jsp:param>
+</jsp:include>
 </body>
 </html>
