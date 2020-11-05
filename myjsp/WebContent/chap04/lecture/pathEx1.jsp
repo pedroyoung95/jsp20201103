@@ -13,13 +13,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>contextPathEx2</h1>
-<jsp:include page="/chap04/lecture/contextPathEx2Sub.jsp"></jsp:include>
-<!--내부에서 접근시에는 컨텍스트경로를 굳이 포함시킬 필요X-->
-<!--'jsp:include' : 다른 jsp파일을 포함시키는 기능  -->
+<h1>path</h1>
+<a href="<%= request.getContextPath()%>/chap04/lecture/contextPathEx2.jsp">other file</a>
+<!--'/'로 시작하면 절대경로-->
+<!--context root 이름부터 파일 명까지 전부 다 url에 기입됨-->
 <br />
-<a href="<%= request.getContextPath() %>/chap04/lecture/contextPathEx2Sub.jsp">to sub.jsp</a>
-<!--외부에서 접근시에는 컨텍스트경로를 포함시켜야 함-->
-<!--getContextPath()는 / 로 시작  -->
+<a href="contextPathEx2.jsp">other file2</a>
+<!--'/'로 시작하지 않으면 상대경로-->
+<!--마지막 '/'뒤부터 상대경로로 작성된 것이 기입됨-->
+<!--상대경로는 서버나 클라이언트 두 입장에서 같음-->
+<br />
+<a href="<%= request.getContextPath()%>/chap04/lecture/subfolder/pathEx1Sub.jsp">절대경로</a>
+<br />
+<a href="subfolder/pathEx1Sub.jsp">상대경로</a>
+
 </body>
 </html>
