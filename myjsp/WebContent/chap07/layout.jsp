@@ -13,19 +13,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="/WEB-INF/chap07/include-directive/navbarEx1.jsp" %>
-<!--include라는 디렉티브의 file 속성에 가져오고자 하는 파일 명 기입-->
-<!--include되는 파일을 숨길 경우, 접근할 수 없는 폴더인 WEB-INF안에 넣어서 사용-->
-<!--include 디렉티브는 코드를 그대로 가져오는 방식-->
-
-<div class="container">
-	<h1>cool page~</h1>
-	<h2><%= name %></h2>
+<div class="ml-3">
+<table width="400" border="1" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2">
+		<jsp:include page="module/top.jsp"></jsp:include>
+	</td>
+</tr>
+<tr>
+	<td width="100" valign="top">
+		<jsp:include page="module/left.jsp"></jsp:include>
+	</td>
+	<td width="300" valign="top">
+		레이아웃1
+		<br /><br /><br />
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<jsp:include page="module/bottom.jsp"></jsp:include>
+	</td>
+</tr>
+</table>
 </div>
-
-<%@ include file="/WEB-INF/chap07/include-directive/footerEx1.jsp" %>
-
-
 </body>
 </html>

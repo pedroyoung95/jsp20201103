@@ -14,18 +14,19 @@
 </head>
 <body>
 
-<%@ include file="/WEB-INF/chap07/include-directive/navbarEx1.jsp" %>
-<!--include라는 디렉티브의 file 속성에 가져오고자 하는 파일 명 기입-->
-<!--include되는 파일을 숨길 경우, 접근할 수 없는 폴더인 WEB-INF안에 넣어서 사용-->
-<!--include 디렉티브는 코드를 그대로 가져오는 방식-->
+<%
+String str = "java";
+%>
+
+<jsp:include page="navbarEx1.jsp"></jsp:include>
+<!--jsp가 제공하는 액션 태크(특정 기능을 수행하는 태그)-->
+<!--액션 태그는 속성값인 다른 파일의 실제 실행 결과를 가져오는 방식-->
 
 <div class="container">
-	<h1>cool page~</h1>
-	<h2><%= name %></h2>
+<h1>액션 태그 본문</h1>
 </div>
 
-<%@ include file="/WEB-INF/chap07/include-directive/footerEx1.jsp" %>
-
+<jsp:include page="footerEx1.jsp"></jsp:include>
 
 </body>
 </html>
