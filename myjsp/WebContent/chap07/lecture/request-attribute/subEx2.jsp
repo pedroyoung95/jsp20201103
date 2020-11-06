@@ -10,16 +10,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>현재 시간</title>
+<title>Insert title here</title>
 </head>
 <body>
 <%
-Calendar cal = (Calendar) request.getAttribute("time");
-/*getAttribute의 리턴타입이 Object타입이기 때문에 Calendar로 강제 형변환 필요 */
+Object o = request.getAttribute("cartList");
+List<String> list = new ArrayList<>();
+if(o != null && o instanceof List<?>) {
+	list = (List<String>) o;
+}
 %>
-현재 시간은
-<%= cal.get(Calendar.HOUR) %>시
-<%= cal.get(Calendar.MINUTE) %>분
-<%= cal.get(Calendar.SECOND) %>초 입니다.
+<h1>cart list</h1>
+<ul>
+<%
+for(String item : list) {
+%>
+<li><%= item %></li>
+<%
+}
+%>
+</ul>
+
 </body>
 </html>

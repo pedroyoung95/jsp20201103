@@ -19,6 +19,6 @@
 param : <%= request.getParameter("newParam") %>
 <br />
 attr : <%= request.getAttribute("obj") %>
-<!--request에 담긴 객체를 받는 쪽은 getAttribute로 읽어냄  -->
+<!--getAttribute의 리턴타입은 Object타입 -->
 </body>
 </html>

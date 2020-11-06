@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
+<%@ page import="chap07.User" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -10,16 +11,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>현재 시간</title>
+<title>Insert title here</title>
 </head>
 <body>
 <%
-Calendar cal = (Calendar) request.getAttribute("time");
-/*getAttribute의 리턴타입이 Object타입이기 때문에 Calendar로 강제 형변환 필요 */
+User u = (User) request.getAttribute("user");
 %>
-현재 시간은
-<%= cal.get(Calendar.HOUR) %>시
-<%= cal.get(Calendar.MINUTE) %>분
-<%= cal.get(Calendar.SECOND) %>초 입니다.
+
+이름 : <%= u.getName() %> <br />
+주소 : <%= u.getAddress() %> <br />
+나이 : <%= u.getAge() %> <br />
 </body>
 </html>
