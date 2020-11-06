@@ -17,3 +17,4 @@ request.setAttribute("users", userList);
 %>
 
 <jsp:forward page="subEx4.jsp"></jsp:forward>
+<!-- request객체는 요청이 올 때마다 새로 만들어짐 -->
