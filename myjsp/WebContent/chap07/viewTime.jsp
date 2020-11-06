@@ -15,6 +15,7 @@
 <body>
 <%
 Calendar cal = (Calendar) request.getAttribute("time");
+/*setAttribute할 때 Object타입으로 담았기 때문에 Calendar로 강제 형변환 필요 */
 %>
 현재 시간은
 <%= cal.get(Calendar.HOUR) %>시
