@@ -6,7 +6,7 @@
 <a class="navbar-brand text-white" href="#">Logo</a>
 
   <!-- Links -->
-  <ul class="navbar-nav">
+  <ul class="navbar-nav mr-auto">
     <li class="nav-item">
     
       <a class="nav-link text-white" href="http://www.naver.com" target="_blank">Naver</a>
@@ -29,11 +29,12 @@
         <a class="dropdown-item" href="#">Link 3</a>
       </div>
     </li>
-    <form class="form-inline" action="">
+    </ul>
+    <form class="form-inline my-2" action="">
     <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
-    <button class="btn btn-success" type="submit">Search</button>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-  </ul>
+  
 </nav>
 
 

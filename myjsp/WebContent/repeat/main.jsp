@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+String email = request.getParameter("email");
+String pw = request.getParameter("password");
+
+Map<String, String> idandpw = new HashMap<>();
+idandpw.put("abc@gmail.com", "1111");
+
+boolean login = email.equals("abc@gmail.com") && pw.equals("1111");
+if(!login) {
+	response.sendRedirect("login.jsp?code=1");
+} else {
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +22,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>My first Web</title>
+<title>Insert title here</title>
 </head>
 <body>
-<div class="container-fluid">
-</div>
 
-<jsp:include page="/WEB-INF/repeat/navbar.jsp"></jsp:include>
+<%@ include file="/WEB-INF/repeat/navbar.jsp"%>
 
 <div class="container-fluid mt-3">
   <div class="row">
@@ -44,40 +55,16 @@
       <br />
     </div>
     
-    <div class="col-6">
-      
-      <div class="container mt-2">
-<%
-String code = request.getParameter("code");
-if(code != null && code.equals("1")) {
-	
-%>
-<div class="alert alert-danger" role="alert">
-일치하는 이메일 또는 패스워드가 없습니다.
+    <div class="col-6">      
+      <div class="container mx-auto">
+<div class="card">
+  <img class="card-img-top" src="chicago.jpg" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
 </div>
-<%
-}
-%>
-<form action="main.jsp" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <br />
-  <form action="enrollPage.jsp">
-  <button type="button" class="btn btn-primary">회원가입</button>
-  </form>		 
-</form>
 </div>
 
 <jsp:include page="/WEB-INF/repeat/footer.jsp"></jsp:include>
@@ -90,6 +77,8 @@ if(code != null && code.equals("1")) {
   </div>
 </div>
 
-
+<%
+}
+%>
 </body>
 </html>
