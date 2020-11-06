@@ -20,7 +20,28 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col text-center">
-      One of three columns
+      One of three columns 
+      <br />
+      <a href="">link1</a>
+      <br />
+      <a href="">link2</a>
+      <br />
+      <a href="">link3</a>
+      <br />
+      <a href="">link4</a>
+      <br />
+      <a href="">link5</a>
+      <br />
+      <a href="">link6</a>
+      <br />
+      <a href="">link7</a>
+      <br />
+      <a href="">link8</a>
+      <br />
+      <a href="">link9</a>
+      <br />
+      <a href="">link10</a>
+      <br />
     </div>
     
     <div class="col-6">
@@ -48,7 +69,7 @@
 
     </div>
     <div class="col text-center">
-      One of three columns
+      One of three columns		
     </div>
   </div>
 </div>
