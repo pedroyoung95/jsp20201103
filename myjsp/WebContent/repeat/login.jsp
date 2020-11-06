@@ -15,8 +15,7 @@
 <div class="container-fluid">
 </div>
 
-<%@ include file="/WEB-INF/repeat/navbar.jsp" %>
-
+<jsp:include page="/WEB-INF/repeat/navbar.jsp"></jsp:include>
 
 <div class="container-fluid mt-3">
   <div class="row">
@@ -45,7 +44,7 @@
 </form>
 </div>
 
-<%@ include file="/WEB-INF/repeat/footer.jsp" %>
+<jsp:include page="/WEB-INF/repeat/footer.jsp"></jsp:include>
 
     </div>
     <div class="col text-center">
