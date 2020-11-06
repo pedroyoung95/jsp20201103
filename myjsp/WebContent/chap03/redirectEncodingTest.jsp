@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ page import="java.net.URLEncoder"%>
+<%
+String value = "자바";
+String encodedValue = URLEncoder.encode(value, "utf-8");
+response.sendRedirect("index.jsp?name=" + encodedValue);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +19,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-name : <%= request.getParameter("name") %> <br />
-id : <%= request.getParameter("id") %> <br />
-han : <%= request.getParameter("han") %>
+
 </body>
 </html>
