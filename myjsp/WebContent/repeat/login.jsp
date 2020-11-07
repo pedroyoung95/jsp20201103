@@ -72,11 +72,11 @@ if(code != null && code.equals("1")) {
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <br />
-  <form action="enrollPage.jsp">
-  <button type="button" class="btn btn-primary">회원가입</button>
-  </form>		 
+  <button type="submit" class="btn btn-primary">Submit</button>		 
+</form>
+ <br />
+<form action="enrollPage.jsp">
+<button type="submit" class="btn btn-primary">회원가입</button>
 </form>
 </div>
 
@@ -89,7 +89,6 @@ if(code != null && code.equals("1")) {
     </div>
   </div>
 </div>
-
 
 </body>
 </html>

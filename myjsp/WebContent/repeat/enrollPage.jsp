@@ -13,7 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/myjsp/WebContent/WEB-INF/repeat/enrollProcess.jsp" method="post">
+<div class="container">
+<form action="enrollProcess.jsp" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
@@ -30,5 +31,10 @@
   </div>
   <button type="submit" class="btn btn-primary">가입하기</button>
 </form>
+<br />
+<form action="login.jsp">
+<button type="submit" class="btn btn-primary">둘아가기</button>
+</form>
+</div>
 </body>
 </html>
