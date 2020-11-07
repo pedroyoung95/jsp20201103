@@ -13,19 +13,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
+<form action="/myjsp/WebContent/WEB-INF/repeat/enrollProcess.jsp" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="form-group">    
+    <label for="nickname">Nickname</label>
+    <input type="text" class="form-control" id="nickname" aria-describedby="nicknameHelp" name="nickname">
+    <small id="nicknameHelp" class="form-text text-muted">This nickname is used in our website.</small>
   </div>
   <button type="submit" class="btn btn-primary">가입하기</button>
 </form>
