@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<% String email = request.getParameter("email"); %>
+<% String password = request.getParameter("password"); %>
+<% String nickname = request.getParameter("nickname"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +16,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><%= request.getParameter("email")%></h1> <br />
-<h1><%= request.getParameter("password") %></h1> <br />
-<h1><%= request.getParameter("nickname") %></h1> <br />
+<%
+if(email.equals("") || password.equals("") || nickname.equals("")) {
+%>
+<div class="container">
+<br />
+	<div class="alert alert-danger" role="alert">일치하는 이메일 또는 패스워드가 없습니다.	</div>
+	<br />
+	<form action="enrollPage.jsp">
+	<button type="submit" class="btn btn-primary">돌아가기</button>	
+	</form>
+</div>
+
+<%
+} else {
+%>
+<h1><%= email %></h1> <br />
+<h1><%= password %></h1> <br />
+<h1><%= nickname %></h1> <br />
+<%
+}
+%>
 </body>
 </html>
