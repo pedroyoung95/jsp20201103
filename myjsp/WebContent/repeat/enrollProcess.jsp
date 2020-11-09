@@ -35,10 +35,13 @@ if(email.equals("") || password.equals("") || nickname.equals("")) {
 
 <%
 } else {
-	UserInfo userInfo = new UserInfo();
+	UserInfo userInfo = new UserInfo(email, password, nickname);
 	OutputStream os = new FileOutputStream(path);
 	ObjectOutputStream oos = new ObjectOutputStream(os);
 	oos.writeObject(userInfo);
+%>
+<h1>회원가입을 축하합니다!</h1>
+<%
 }
 %>
 </body>
