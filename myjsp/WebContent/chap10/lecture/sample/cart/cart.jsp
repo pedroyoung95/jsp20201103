@@ -15,11 +15,12 @@
 <body>
 <h1>장바구니</h1>
 <%
-List<String> list = (List<String>) session.getAttribute("cart");
-if(list != null && list.size() > 0) {
-	for(String item : list) {
+Map<String, Integer> map = (Map<String, Integer>) session.getAttribute("cart");
+if(map != null && map.size() > 0) {
+	Set<String> key = map.keySet();
+	for(String item : key) {
 	%>
-		<li><%= item %></li>
+		<li><%= item %> : <%= map.get(item) %></li>
 	<%
 	}
 	%>

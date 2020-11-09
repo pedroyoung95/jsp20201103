@@ -15,16 +15,27 @@
 <body>
 <%
 String food = request.getParameter("food");
+int size = 0;
 if(food != null) {
 	//세션에 추가
-	List<String> cart = (List<String>) session.getAttribute("cart");
+	Map<String, Integer> cart = (Map<String, Integer>) session.getAttribute("cart");
+	/* List<String> cart = (List<String>) session.getAttribute("cart"); */
 	if( cart == null) {
-		cart = new ArrayList<>();
+		cart = new HashMap<>();
 		session.setAttribute("cart", cart);
-	}
-	cart.add(food);
+	}	
+	cart.compute(food, (k, v) -> v == null ? 1 : v + 1); 
+	
+	/* if(cart.containsKey(food)) {
+		cart.put(food, cart.get(food) + 1);
+	} else {
+		cart.put(food, 1);
+	} */	
+	
+	size = cart.size();
 }
 %>
+장바구니 : <%= size %>개
 <form action="" method="post">
 <select name="food" id="">
 	<option value="water">물</option>
