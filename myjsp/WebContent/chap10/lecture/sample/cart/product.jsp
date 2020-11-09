@@ -13,18 +13,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>session ex</h1>
 <%
-request.setAttribute("attr1", "value1");
-session.setAttribute("attr2", "value2");
+String food = request.getParameter("food");
+if(food != null) {
+	//세션에 추가
+	List<String> cart = (List<String>) session.getAttribute("cart");
+	if( cart == null) {
+		cart = new ArrayList<>();
+		session.setAttribute("cart", cart);
+	}
+	cart.add(food);
+}
 %>
-<!--session객체는 기본적으로 사용가능. jsp들이 같은 session을 공유하면 attribute값도 공유-->
-<!--session객체는 httpsession이라는 interface의 구현객체임-->
-<!--session attribute에 저장된 값은 session 종료 전까지 사용 가능-->
-<!--같은 브라우저에서만 session이 유지됨-->
-
-attr1 : <%= request.getAttribute("attr1") %>
+<form action="" method="post">
+<select name="food" id="">
+	<option value="water">물</option>
+	<option value="pizza">피자</option>
+	<option value="burger">버거</option>
+	<option value="choco">초콜렛</option>
+	<option value="icecream">아이스크림</option>
+</select>
 <br />
-attr2 : <%= session.getAttribute("attr2") %>
+<input type="submit" value="장바구니 담기" />
+</form>
+<a href="cart.jsp">장바구니 보기</a>
 </body>
 </html>
