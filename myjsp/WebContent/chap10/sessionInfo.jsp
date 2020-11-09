@@ -33,6 +33,9 @@ time.setTime(session.getCreationTime());
 <%
 time.setTime(session.getLastAccessedTime());
 %>
-최근접속시간 : <%= formatter.format(time) %>
+최근접속시간 : <%= formatter.format(time) %> <br />
+세션유지시간 : <%= session.getMaxInactiveInterval() %>
+<!--web.xml에 분 단위의 시간이 모든 jsp의 세션의 활성화 시간이 됨-->
+<!--기본 활성화 시간은 30분-->
 </body>
 </html>
