@@ -48,5 +48,8 @@ if(food != null) {
 <input type="submit" value="장바구니 담기" />
 </form>
 <a href="cart.jsp">장바구니 보기</a>
+<form action="cartInitialize.jsp">
+<input type="submit" value="초기화" />
+</form>
 </body>
 </html>
