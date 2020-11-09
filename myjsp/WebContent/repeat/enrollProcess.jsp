@@ -1,3 +1,7 @@
+<%@page import="userInfo.UserInfo"%>
+<%@page import="java.io.ObjectOutputStream"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.OutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
@@ -5,6 +9,7 @@
 <% String email = request.getParameter("email"); %>
 <% String password = request.getParameter("password"); %>
 <% String nickname = request.getParameter("nickname"); %>
+<% String path = "C:/Users/admin/Documents/myworkspace/eclipse-workspace/myjsp/WebContent/repeat/UserInfo.txt"; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +35,10 @@ if(email.equals("") || password.equals("") || nickname.equals("")) {
 
 <%
 } else {
-%>
-<h1><%= email %></h1> <br />
-<h1><%= password %></h1> <br />
-<h1><%= nickname %></h1> <br />
-<%
+	UserInfo userInfo = new UserInfo();
+	OutputStream os = new FileOutputStream(path);
+	ObjectOutputStream oos = new ObjectOutputStream(os);
+	oos.writeObject(userInfo);
 }
 %>
 </body>
