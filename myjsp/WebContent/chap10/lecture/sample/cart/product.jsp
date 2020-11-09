@@ -16,6 +16,10 @@
 <%
 String food = request.getParameter("food");
 int size = 0;
+if(session.getAttribute("cart") != null) {
+	Map<String, Integer> map = (Map<String, Integer>) session.getAttribute("cart"); 
+	size = map.size();
+}
 if(food != null) {
 	//세션에 추가
 	Map<String, Integer> cart = (Map<String, Integer>) session.getAttribute("cart");

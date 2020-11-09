@@ -32,6 +32,6 @@ if(map != null && map.size() > 0) {
 <%
 }
 %>
-
+<a href="product.jsp">돌아가기</a>	
 </body>
 </html>
