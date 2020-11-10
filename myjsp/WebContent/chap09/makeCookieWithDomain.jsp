@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%
 Cookie cookie1 = new Cookie("id", "madvirus");
-cookie1.setDomain(".somehost.com");
+cookie1.setDomain("www.somehost.com");
 response.addCookie(cookie1);
 
 Cookie cookie2 = new Cookie("only", "onlycookie");
