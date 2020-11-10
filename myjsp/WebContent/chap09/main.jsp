@@ -17,5 +17,9 @@
 <form action="logout.jsp">
 <input type="submit" value="로그아웃" /> 
 </form>
+<br />
+<form action="loginCheck.jsp">
+<input type="submit" value="로그인 확인" />
+</form>
 </body>
 </html>
