@@ -5,7 +5,7 @@
 <%
 Cookie cookie = new Cookie("mycookie2", "mycookie2-path");
 cookie.setPath("/myjsp/chap09");
-cookie.setHttpOnly(true); //커스터마이징 된 쿠키를 사용 못하게 막음
+cookie.setHttpOnly(true); //자바스크립트가 쿠키를 변경하지 못 하도록 httpOnly를 true로 설정
 response.addCookie(cookie);
 //만들어진 쿠키는 따로 경로설정을 안 하면 만들어진 경로 및 하위 경로 영역까지만 존재
 //상위 경로에는 해당 쿠키 생성X
