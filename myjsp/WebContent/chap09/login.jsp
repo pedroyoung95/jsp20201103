@@ -8,8 +8,7 @@ String id = request.getParameter("id");
 String password = request.getParameter("password");
 
 if(id.equals(password)){
-	response.addCookie(Cookies.createCookie("AUTH", id, "/", -1));
-
+	response.addCookie(Cookies.createCookie("AUTH", id, "/", 24*60*60));
 %>
 <!DOCTYPE html>
 <html>
@@ -22,10 +21,14 @@ if(id.equals(password)){
 <title>로그인성공</title>
 </head>
 <body>
-로그인에 성공했습니다. 
-<form action="logout.jsp">
-<input type="submit" value="로그아웃" />
+로그인에 성공했습니다. <br />
+<form action="main.jsp">
+<input type="submit" value="메인 페이지로 이동" />
 </form>
+<br />
+<form action="logout.jsp">
+<input type="submit" value="로그아웃" /> 
+</form> 
 </body>
 </html>
 <%

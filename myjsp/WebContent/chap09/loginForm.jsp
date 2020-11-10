@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
+<%@ page import="chap09.Cookies" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+Cookies cookies = new Cookies(request);
+if(!cookies.exists("AUTH")) {
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,3 +32,10 @@
 
 </body>
 </html>
+<%
+} else {
+%>
+<jsp:forward page="loginCheck.jsp"></jsp:forward>
+<%
+}
+%>
