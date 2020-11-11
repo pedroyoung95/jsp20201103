@@ -5,10 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%
 List<Post> list = (List<Post>) application.getAttribute("list");
-if(list == null) {
-	list = new ArrayList<Post>();
-	application.setAttribute("list", list);
-}
+
 String id = request.getParameter("id");
 Integer index = Integer.valueOf(id);
 Post post = list.get(index);
