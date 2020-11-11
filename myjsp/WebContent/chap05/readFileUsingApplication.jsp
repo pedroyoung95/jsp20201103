@@ -19,6 +19,11 @@ String resourcePath ="/WEB-INF/notice.txt";
 %>
 자원의 실제 경로: <br />
 <%= application.getRealPath(resourcePath) %>
+<%-- <%
+String realPath = application.getRealPath(resourcePath);
+InputStream st = new InputStream(realPath);
+%> --%>
+<!--getResourceAsStream메소드가 위 두 줄을 한 번에 해냄. 경로에 따른 inputStream을 바로 생성-->
 <br />
 --------------- <br />
 <%= resourcePath %>의 내용 <br />
