@@ -15,7 +15,7 @@
 <body>
 <h1>java 웹 앱의 4개의 영역</h1>
 <ul>
-<li>page - pageContext 객체(각 jsp페이지가 갖는 객체)</li>
+<li>page - pageContext 객체(하나의 jsp페이지가 갖는 객체)</li>
 <li>request - request 객체(여러 jsp페이지가 request 객체를 통해 요청정보를 공유)</li>
 <li>session - session 객체(여러 jsp페이지가 session을 통해 하나의 브라우저 내에서 정보를 공유)</li>
 <li>application - application(특정 웹 앱에 포함된 모든 jsp페이지가 공유)</li>

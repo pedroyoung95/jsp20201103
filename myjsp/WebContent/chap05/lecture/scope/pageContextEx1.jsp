@@ -13,11 +13,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>get attribute</h1>
-<h2><%= request.getAttribute("reqAttr1") %></h2>
-<!--applicationEx2의 request 객체는 applicationEx1의 request 객체와 다르므로 null값 출력-->
-<!--form action이나 액션태그 등으로 request객체를 공유해야 다른 jsp페이지에서도 request읽기 가능-->
-<h2><%= session.getAttribute("sessionAttr1") %></h2>
-<h2><%= application.getAttribute("appAttr1") %></h2>
+<h1>pageContext 는 하나의 페이지의 영역</h1>
+<%
+pageContext.setAttribute("pageAttr1", "pageVal1");
+request.setAttribute("reqAttr1", "reqVal1");
+%>
+
+<%= pageContext.getAttribute("pageAttr1")%> <br />
+<%= request.getAttribute("reqAttr1") %> <br />
+
+<jsp:include page="pageContextEx1Sub.jsp"></jsp:include>
+<!--액션태그로 인해 request객체는 공유가 되어서 읽을 수 있음-->
+<!--pageContext는 해당 jsp페이지 내애서만 읽을 수 있음-->
 </body>
 </html>
