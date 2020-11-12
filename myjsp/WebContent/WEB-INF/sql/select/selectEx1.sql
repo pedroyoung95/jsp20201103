@@ -12,6 +12,7 @@ select ename, salary / 100 from employee;
 select ename, salary + 100 from employee;
 select ename, salary - 100 from employee;
 select ename, salary 월급, salary*12 as 연봉 from employee; --as로 칼럼 이름을 부여할 수 있고, as는 생략 가능
+select ename, salary "월 급", salary*12 "연★봉" from employee; --특수문자 또는 공백을 포함하려면 ""로 감싸기
 --한 줄 주석
 /*
 다중 
