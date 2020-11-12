@@ -1,7 +1,8 @@
-SELECT * from employee;
+SELECT * from employee; --값을 제외하고는 대소문자 구분 안 함
 select * from bonus; --record가 없는 테이블
 select * from department;
-select * from salgrade;
+select * from salgrade; --statement는 세미콜론을 종료, 구분됨
+--select 칼럼이름 from 태이블이름;
 
 select ename from employee;
 select eno, ename from employee;
@@ -25,4 +26,5 @@ select ename, salary, commission, NVL(commission, 0) from employee; --NVL(columm
 select ename, salary + NVL(commission,0) 합 from employee;
 
 select distinct dno from employee;
+select distinct(dno) from employee;
 select * from employee where job='SALESMAN'; 
