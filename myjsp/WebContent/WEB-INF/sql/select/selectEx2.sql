@@ -83,4 +83,8 @@ SELECT ename, salary, commission FROM employee WHERE commission IS NOT NULL ORDE
 
 SELECT ename FROM employee WHERE ename LIKE '__R%';
 
-select ename from employee where ename like '%A%' and ename like '%E%';
+SELECT ename FROM employee WHERE ename LIKE '%A%' AND ename LIKE '%E%';
+
+SELECT ename, JOB, salary FROM employee WHERE JOB IN ('CLERK', 'SALESMAN') AND salary NOT IN (950, 1600, 1300);
+
+SELECT ename, salary, commission FROM employee WHERE commission >= 500;
