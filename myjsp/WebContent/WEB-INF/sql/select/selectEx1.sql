@@ -22,3 +22,6 @@ select * from employee;
 select ename, salary, commission, salary + commission from employee; --null과 연산하면 결과는 null
 select ename, salary, commission, NVL(commission, 0) from employee; --NVL(columm name, value) : 해당 칼럼의 값이 null이면 두 번째 파라미터 값으로 변환
 select ename, salary + NVL(commission,0) 합 from employee;
+
+select distinct dno from employee;
+select * from employee where job='SALESMAN'; 
