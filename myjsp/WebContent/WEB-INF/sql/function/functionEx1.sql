@@ -43,9 +43,18 @@ SELECT * FROM employee WHERE substr(to_char(hiredate, 'yyyy-mm-dd'), 1, 4)='1987
 SELECT ename, instr(ename, 'A') FROM employee; 
 --instr(대상, 찾을문자, 시작위치, 몇 번째 발견) 
 --찾는 문자가 없으면 0
-select instr('Tiger Tea Tire Table Tablet Ton', 'T', 2, 2) from employee;
-select instr('Oracle mania', 'a') from dual;
-select instr('Oracle mania', 'a', 5, 2) from dual; 
+SELECT instr('Tiger Tea Tire Table Tablet Ton', 'T', 2, 2) FROM employee;
+SELECT instr('Oracle mania', 'a') FROM dual;
+SELECT instr('Oracle mania', 'a', 5, 2) FROM dual; 
 --3번째 파라미터 : 탐색 시작 위치 / 4번째 파라미터 : 찾으려는 문자가 여러 개이면 그 중 몇 번째 문자인지 결정
-select * from employee where instr(ename, 'R', 3, 1)=3;
-select * from employee where instr(ename, 'R')=3; --굳이 3, 4번째 파라미터가 있어야 하나?
+SELECT * FROM employee WHERE instr(ename, 'R', 3, 1)=3;
+SELECT * FROM employee WHERE instr(ename, 'R')=3; --굳이 3, 4번째 파라미터가 있어야 하나?
+
+SELECT ename, lpad(ename, 10, '#') FROM employee; --총 10자리를 만들고 ename의 왼쪽을 *로 채움
+SELECT ename, rpad(ename, 10, '*') FROM employee;
+SELECT lpad(salary, 10, '*') FROM employee;
+SELECT rpad(salary, 10, '*') FROM employee; --문자가 아닌 타입은 문자로 변환해서 실행...?
+
+SELECT ' Oracle mania ', LTRIM(' Oracle mania '), RTRIM(' Oracle mania ') FROM dual;
+SELECT 'Oracle mania', TRIM('O' FROM 'Oracle mania') FROM dual;
+SELECT TRIM(' Oracle mania ') FROM dual;
