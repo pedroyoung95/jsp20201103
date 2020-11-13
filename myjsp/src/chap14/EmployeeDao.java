@@ -196,4 +196,45 @@ public class EmployeeDao {
 		
 		return list;
 	}
+	
+	//AutoClosable이 구현되어있으므로, try-with 블럭으로 코드 단축
+	public static List<String> getNameLike2(String name) {
+		List<String> list = new ArrayList<String>();
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; 
+		String id = "c##mydbms";
+		String pw = "admin";		
+		
+		String sql = "SELECT ename "
+				+ "FROM employee "
+				+ "WHERE "
+				+ "ename LIKE '%" + name + "%'";
+		
+		try {
+			//1. 클래스 로딩
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try (
+			//2.커넥션 생성
+			Connection conn = DriverManager.getConnection(url, id, pw);
+			//3.statement 객체 생성
+			Statement stmt = conn.createStatement();
+			) {
+			//4. 쿼리 실행
+			ResultSet rs = stmt.executeQuery(sql); 
+			
+			//5. 쿼리 실행 결과 처리
+			while(rs.next()) {
+				list.add(rs.getString("ename"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		
+		return list;
+	}
 }
