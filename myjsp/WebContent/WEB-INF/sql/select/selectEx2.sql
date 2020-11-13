@@ -41,22 +41,6 @@ SELECT * FROM employee WHERE commission = 300 OR commission = 500 OR commission 
 SELECT * FROM employee WHERE commission NOT IN (300, 500, 1400);
 SELECT * FROM employee WHERE commission != 300 AND commission != 500 AND commission != 1400;
 
-SELECT * FROM employee WHERE ename LIKE 'F%';
-SELECT * FROM employee WHERE ename LIKE '%M%';
-SELECT * FROM employee WHERE ename LIKE '%N';
-SELECT * FROM employee WHERE ename LIKE '_A%';
-SELECT * FROM employee WHERE ename LIKE '__A%';
-SELECT * FROM employee WHERE ename NOT LIKE '%A%';
-
-SELECT * FROM employee WHERE commission IS NULL;
-SELECT * FROM employee WHERE commission IS NOT NULL;
-
-SELECT * FROM employee ORDER BY salary ASC; --기본이 asc이므로 asc는 생략 가능
-SELECT * FROM employee ORDER BY salary DESC;
-SELECT * FROM employee ORDER BY ename;
-SELECT * FROM employee ORDER BY hiredate DESC;
-SELECT * FROM employee ORDER BY salary DESC, ename ASC;
-
 --혼자 해보기 p.65~
 SELECT ename, salary, salary+300 FROM employee;
 
