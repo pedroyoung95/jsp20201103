@@ -5,25 +5,23 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%
 String job = request.getParameter("job");
-String sql = "SELECT MAX(salary), MIN(salary), AVG(salary), "
-				+"SUM(salary) "
+String sql = "SELECT MAX(salary), MIN(salary), AVG(salary), SUM(salary)"
 				+"FROM employee "
-				+"WHERE job = '" + job + "' ";
+				+"WHERE job = ?";
+//PreparedStatement와 ?를 사용한 경우, sql이 해당 쿼리문을 저장해두고 있기 때문에 재사용 용이 
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
-
-Connection con = null; 
-Statement stmt = null; 
-ResultSet rs = null; 
 
 String url = "jdbc:oracle:thin:@localhost:1521:orcl"; 
 String id = "c##mydbms";
 String pw = "admin";
-con = DriverManager.getConnection(url, id, pw); 
 
-stmt = con.createStatement();
+Connection con = DriverManager.getConnection(url, id, pw);
 
-rs = stmt.executeQuery(sql);
+PreparedStatement stmt = con.prepareStatement(sql);
+stmt.setString(1, job);
+
+ResultSet rs = stmt.executeQuery();
 
 int max = 0;
 int min = 0;

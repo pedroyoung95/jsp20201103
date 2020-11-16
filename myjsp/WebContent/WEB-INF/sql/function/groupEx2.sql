@@ -43,6 +43,7 @@ GROUP BY dno;
 
 --혼자해보기
 SELECT * FROM employee;
+
 --1번
 SELECT MAX(salary) AS "Maximum",
     MIN(salary) AS "Mininum",

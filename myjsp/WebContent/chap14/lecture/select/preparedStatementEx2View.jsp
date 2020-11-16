@@ -4,26 +4,23 @@
 <%@page import="java.sql.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <%
-String job = request.getParameter("job");
-String sql = "SELECT MAX(salary), MIN(salary), AVG(salary), "
-				+"SUM(salary) "
-				+"FROM employee "
-				+"WHERE job = '" + job + "' ";
+String dno = request.getParameter("dno");
+String sql = "SELECT MAX(salary), MIN(salary), AVG(salary), SUM(salary) "
+				+ "FROM employee "
+				+ "WHERE dno = ?";
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
-
-Connection con = null; 
-Statement stmt = null; 
-ResultSet rs = null; 
 
 String url = "jdbc:oracle:thin:@localhost:1521:orcl"; 
 String id = "c##mydbms";
 String pw = "admin";
-con = DriverManager.getConnection(url, id, pw); 
 
-stmt = con.createStatement();
+Connection con = DriverManager.getConnection(url, id, pw);
 
-rs = stmt.executeQuery(sql);
+PreparedStatement stmt = con.prepareStatement(sql);
+stmt.setInt(1, Integer.valueOf(dno));
+
+ResultSet rs = stmt.executeQuery();
 
 int max = 0;
 int min = 0;
