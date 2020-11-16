@@ -4,6 +4,7 @@
 <%@page import="java.sql.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <%
+
 String dno = request.getParameter("dno");
 String name = request.getParameter("name").toUpperCase();
 
