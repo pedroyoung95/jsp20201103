@@ -58,7 +58,7 @@ SELECT * FROM employee JOIN department USING(dno); --기준이 되는 공통칼럼을 USIN
     --NATURAL JOIN과 결과가 동일
 SELECT e.eno, e.ename, d.dname, dno
 FROM employee e JOIN department d USING(dno)
-WHERE e.eno = 7788; --NATURAL JOIN, INNER JOIN, JOIN USING은 공통칼럼을 알아서 조사하므로, 모호성 신경 안 써도 됨
+WHERE e.eno = 7788; --NATURAL JOIN, JOIN USING은 공통칼럼을 알아서 조사하므로, 모호성 신경 안 써도 됨
 
 --JOIN ON
 SELECT * FROM employee e JOIN department d ON e.dno = d.dno; --칼럼명, 칼럼타입 모두 달라도 JOIN기준을 설정 가능
