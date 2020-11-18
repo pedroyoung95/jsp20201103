@@ -57,3 +57,8 @@ SELECT junior.ename, junior.hiredate, senior.ename, senior.hiredate
 FROM employee junior, employee senior
 WHERE junior.hiredate <= senior.hiredate
 AND junior.manager = senior.eno;
+
+SELECT e.eno, e.ename, e.hiredate, e.salary, d.dname, e.job, s.grade, e2.ename 
+FROM employee e LEFT OUTER JOIN employee e2 ON e.manager = e2.eno, department d, salgrade s 
+WHERE e.eno = 7839 AND e.dno = d.dno AND e.salary BETWEEN losal AND hisal;
+ --여러 테이블을 조인하는 상태에서 OUTER JOIN을 사용할 경우, ON절을 OUTER JOIN절 바로 다음에 작성해야 함

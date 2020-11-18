@@ -8,7 +8,28 @@ public class Employee {
 	private LocalDateTime hiredate;
 	private int salary;
 	private String dname;
+	private String job;
+	private int grade;
+	private String managerName;
 	
+	public String getManagerName() {
+		return managerName;
+	}
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
 	public LocalDateTime getHiredate() {
 		return hiredate;
 	}
