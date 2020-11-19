@@ -60,3 +60,18 @@ HAVING ROUND(AVG(salary), 1)  = (SELECT MIN(ROUND(AVG(salary),1)) FROM employee 
 --5번
 SELECT ename, salary, dno FROM employee
 WHERE salary IN (SELECT MIN(salary) FROM employee GROUP BY dno);
+
+SELECT eno, ename, job, salary FROM employee
+WHERE job != 'SALESMAN' AND salary <ANY (SELECT salary FROM employee WHERE job = 'SALESMAN');
+
+SELECT eno, ename, job, salary FROM employee 
+WHERE job != 'SALESMAN' AND salary <ALL (SELECT salary FROM employee WHERE job = 'SALESMAN'); 
+
+--혼자해보기
+
+--6번
+SELECT eno, ename, job, salary FROM employee 
+WHERE job != 'ANALYST' AND salary < ANY (SELECT salary FROM employee WHERE job = 'ANALYST');
+
+--7번 
+SELECT 
