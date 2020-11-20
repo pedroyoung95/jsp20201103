@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="car" class="chap08.Car" scope="page">
-	<jsp:setProperty name="car" property="name" value="kia"></jsp:setProperty>
-	<jsp:setProperty name="car" property="speed" value="100"></jsp:setProperty>
+<jsp:useBean id="car" class="chap08.Car">
+	<jsp:setProperty name="car" property="name" value="hyundai" />
+	<jsp:setProperty name="car" property="speed" value="0" />
 </jsp:useBean>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,22 +17,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!--영역의 들어있는 attributee다음에 .(dot)으로 property를 연결-->
+${car.name } <br /> 
+${car.speed } <br />
+${car.stop } <br />
 
-
-<h3>scrpitlet</h3>
-<%
-chap08.Car carData = (chap08.Car)pageContext.getAttribute("car");
-%>
-<h3>expression</h3>
-<%= carData.getName() %> <br />
-<%= carData.getSpeed() %> <br />
-
-<h3>action tag</h3>
-<jsp:getProperty property="name" name="car"></jsp:getProperty> <br />
-<jsp:getProperty property="speed" name="car"></jsp:getProperty> <br />
-
-<h3>expression language(EL) 표현 언어</h3> <!--또다른 프로그래밍 언어-->
-${car.name} <br />
-${car.speed} <br />
+<hr />
+<!--[]안에 프로퍼티 명을 string으로 넣어서 작성할 수도 있음-->
+${car["name"] } <br />
+${car["speed"] } <br />
+${car["stop"] } <br />
 </body>
 </html>

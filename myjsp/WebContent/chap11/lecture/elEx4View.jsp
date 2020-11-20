@@ -2,11 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="car" class="chap08.Car" scope="page">
-	<jsp:setProperty name="car" property="name" value="kia"></jsp:setProperty>
-	<jsp:setProperty name="car" property="speed" value="100"></jsp:setProperty>
+<jsp:useBean id="member" class="chap08.member.MemberInfo">
+	<jsp:setProperty name="member" property="*"/>
 </jsp:useBean>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,22 +16,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-<h3>scrpitlet</h3>
-<%
-chap08.Car carData = (chap08.Car)pageContext.getAttribute("car");
-%>
-<h3>expression</h3>
-<%= carData.getName() %> <br />
-<%= carData.getSpeed() %> <br />
-
-<h3>action tag</h3>
-<jsp:getProperty property="name" name="car"></jsp:getProperty> <br />
-<jsp:getProperty property="speed" name="car"></jsp:getProperty> <br />
-
-<h3>expression language(EL) 표현 언어</h3> <!--또다른 프로그래밍 언어-->
-${car.name} <br />
-${car.speed} <br />
+name : ${member.name }<br />
+id : ${member.id }<br />
+password : ${member["password"] }<br />
+email : ${member["email"] }<br />
 </body>
 </html>
