@@ -12,7 +12,8 @@ pageScope : Map 객체
 requestScope : Map 객체
 sessionScope : Map 객체
 applicationScope : Map 객체
-param : Map 객체
+
+param : request 파라미터를 담고 있는 Map 객체
 paramValues : Map 객체
 header : Map 객체
 headerValues : Map 객체
