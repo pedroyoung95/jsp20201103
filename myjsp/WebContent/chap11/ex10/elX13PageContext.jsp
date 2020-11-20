@@ -15,9 +15,9 @@
 </head>
 <body>
 <%= pageContext %> <br />
-${pageContext.request } <!--{pageConext에 있는 데이터를 request로부터 얻어옴--> <br />
+${pageContext.request } <!--{pageConext에 있는 데이터를 request로부터 출력--> <br />
 ${pageContext.session }  <br />
-${pageContxt.servletContext } <br />
+${pageContext.servletContext } <br />
 ${pageContext.response } <br />
 ${pageContext.servletConfig } <br />
 <hr />
@@ -25,5 +25,8 @@ ${pageContext.servletConfig } <br />
 ${pageContext.request.contextPath } <br />
 ${pageContext.request.cookies[0].name } <br />
 ${pageContext.request.cookies[0].value } <br />
+<hr />
+${pageContext.request } <br />
+<%= pageContext.getRequest() %> <!--이 둘이 같은 기능-->
 </body>
 </html>
