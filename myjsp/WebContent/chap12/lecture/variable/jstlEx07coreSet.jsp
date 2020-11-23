@@ -25,7 +25,7 @@ pageContext.setAttribute("myMap", map);
 <body>
 ${myCar.name } <br />
 ${myMap.myKey1 }
-<c:set target="${myCar }" property="name" value="benz"></c:set>
+<c:set target="<%=myCar %>" property="name" value="benz"></c:set>
 <c:set target="${myMap }" property="myKey1" value="변경된 값"></c:set>
 <c:set target="${myMap }" property="myKey2" value="추가된 값"></c:set>
 
