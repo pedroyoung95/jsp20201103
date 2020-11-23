@@ -13,8 +13,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+<h3>empty</h3>
+null : ${empty abc } <br /> <!--빈 객체인지 검사하는 연산자  -->
+"" : ${empty "" } <br /> <!--빈 문자열이면 true  -->
+<%
+List list = new ArrayList();
+pageContext.setAttribute("list", list);
+%>
+list : ${empty list } <br />
+<%
+Map map = new HashMap();
+pageContext.setAttribute("map", map);
+%>
+map : ${empty map } <br />
+map : ${not empty map } <br />
+
 </body>
 </html>

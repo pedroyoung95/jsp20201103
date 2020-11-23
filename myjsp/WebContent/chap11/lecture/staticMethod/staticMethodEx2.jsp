@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
+<%@ page import="chap11.MyClass" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+${MyClass.myMethod() } <br />
 </body>
 </html>

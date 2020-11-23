@@ -13,8 +13,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+<h3>and</h3>
+${true && true } <br />
+${true and true } <br />
+${true && false } <br />
+${true and false } <br />
+${false && false } <br />
+${false and false } <br />
+<hr />
+<h3>or</h3>
+${true || true } <br />
+${true or true } <br />
+${true || true } <br />
+${true or false } <br />
+${false || false } <br />
+${false or false } <br />
+<hr />
+<h3>not</h3>
+${! true } <br />
+${not true } <br />
+${! false } <br />
+${not false } <br />
 </body>
 </html>

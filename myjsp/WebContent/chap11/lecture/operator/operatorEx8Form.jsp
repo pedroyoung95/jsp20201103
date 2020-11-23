@@ -13,8 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+<h1>empty 연산자</h1>
+<form action="operatorEx8View.jsp">
+이름 : <input type="text" name="name"/> <br />
+동의 <input type="checkbox" name="accept" id="" /> <br />
+<input type="submit" value="등록" />
 </body>
 </html>

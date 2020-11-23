@@ -13,8 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+이름 : ${param.name } <br />
+동의  : ${not empty param.accept } <br />
+</form>
 </body>
 </html>

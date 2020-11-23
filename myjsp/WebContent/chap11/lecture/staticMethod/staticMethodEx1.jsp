@@ -13,8 +13,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-${cookie["JSESSIONID"] } <br />
-${cookie["JSESSIONID"].name } <br />
-${cookie["JSESSIONID"].value }
+<!--클래스를 import하면  그 정적베소드를 el에서 사용 가능-->
+${Math.abs(-5) } <br />
+${Math.random() } <br />
+${Math.round(3.14) } <br />
+<hr />
+<%
+double num = 5.5;
+pageContext.setAttribute("num", num);
+/*자바코드에서만 선언된 변수를 바로 el에서 사용할 수 없으므로, attribute로 넣어서 el에서 사용해야 함 */
+%>
+${Math.round(num) } <br />
 </body>
 </html>
