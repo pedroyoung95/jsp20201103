@@ -14,16 +14,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-제목 : <input type="text" readonly value="${list[param.id].title }"/>
-<br />
-<textarea rows="3" cols="30"readonly>${list[param.id].body }</textarea>
+<c:url value="http://search.daum.net/search" var="searchUrl">
+	<c:param name="w" value="blog"></c:param>
+	<c:param name="q" value="공원"></c:param>
+</c:url>
 
-<hr/>
-
-<pre>
-<c:out value="${list[param.id].body }"></c:out> 
-</pre>
-
-
+<ul>
+	<li>${searchUrl }</li>
+	<li><c:url value="/use_if_tag.jsp"></c:url></li>
+	<li><c:url value="./use_if_tag.jsp"></c:url></li>
+</ul>
 </body>
 </html>
