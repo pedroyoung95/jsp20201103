@@ -14,6 +14,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!--url 태그는 url을 생성해주는 기능  -->
+<!--url뒤에 파라미터를 추가하고 싶으면 param태그를 작성-->
 <c:url value="jstlEx26url.jsp" var="myUrl">
 	<c:param name="id" value="3"></c:param>
 	<c:param name="name" value="john"></c:param>

@@ -20,6 +20,7 @@
 </c:url>
 
 <ul>
+<!--url태그에서 주소가 /로 시작하면 contextPath가 적용됨  -->
 	<li>${searchUrl }</li>
 	<li><c:url value="/use_if_tag.jsp"></c:url></li>
 	<li><c:url value="./use_if_tag.jsp"></c:url></li>
