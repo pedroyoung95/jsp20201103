@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="tf" tagdir="/WEB-INF/tags/lectrue" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/lectrue" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -15,10 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-오늘은  <b><tf:now/></b> 입니다.
-<%-- <tf:now> abc </tf:now> 
-now태그파일에서 body-content속성 값을 empty로 설정했기 때문에 now태그는 사이에 컨텐츠를 포함시킬 수 없음
-자동생성할 때도 종료태그 없이 하나의 태그로 종료된 형태로 나오는 이유도 그 때문
---%>
+
 </body>
 </html>
