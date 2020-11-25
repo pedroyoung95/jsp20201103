@@ -15,8 +15,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!--body-content속성 값을 tagdepedent로 설정하면 태그에 포함된 내용물이 있는 글자 그대로 출력됨(스크립트, 자바코드도 실행되지 않고 글자 그대로 출력)-->
-<!--몸체 내용 자체를 텍스트 값으로 사용-->
+<!--body-content속성 값을 tagdepedent로 설정하면 태그에 포함된 내용물이 글자 그대로 출력됨-->
+<!--몸체 내용 자체를 텍스트 값으로 사용(텍스트 값이므로, jsp:body태그의 var속성으로 어떤 변수에 그 값을 할당해서 재사용 할 수 있음-->
 <my:ex4bodyTagDependent>
 	<%
 	out.print("hello");
