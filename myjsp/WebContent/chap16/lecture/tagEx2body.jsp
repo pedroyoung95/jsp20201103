@@ -15,6 +15,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<my:ex2bodyEmpty/>
+<hr />
+<my:ex2bodyEmpty></my:ex2bodyEmpty>
+<hr />
+<%-- <my:ex2bodyEmpty> </my:ex2bodyEmpty> body-content속성 값이 empty면 태그 사이에 빈 칸도 없어야 함(빈 칸도 하나의 내용물이므로)--%>
 </body>
 </html>
