@@ -1,2 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ tag body-content="scriptless" language="java" pageEncoding="UTF-8"%>
+
+<h1>body scriptless</h1>
+<jsp:doBody/>
