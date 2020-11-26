@@ -40,8 +40,10 @@ public class ServletEx05 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8"); //한글 파라미터 값을 읽기 위해 필요함
+		String name = request.getParameter("name");
 		String age = request.getParameter("age");
 		String email = request.getParameter("email");
+		System.out.println(name);
 		System.out.println(age);
 		System.out.println(email);
 		doGet(request, response);

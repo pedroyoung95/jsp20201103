@@ -17,6 +17,7 @@
 <body>
 <h3>doPost, request parameter 연습</h3>
 <form action="<%= request.getContextPath() %>/ex05" method="post">
+이름  : <input type="text" name="name" />
 나이 : <input type="number" name="age" id="" />
 이메일 : <input type="email" name="email" id="" />
 <input type="submit" value="전송" />
