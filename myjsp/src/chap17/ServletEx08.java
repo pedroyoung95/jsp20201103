@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletEx8
  */
-@WebServlet(value = "/ex08", loadOnStartup = 1) //어노테이션에 loadONStartup에 정수값을 넣으면 요청을 받지 않아도 init()메소드를 1번 실행
+@WebServlet(value = "/ex08", loadOnStartup = 1) 
+//어노테이션에 loadONStartup에 정수값을 넣으면 요청을 받지 않아도 init()메소드를 1번 실행
+//어노테이션 괄호 안에 여러 변수가 들어갈 경우, url 값을 받는 value를 꼭 작성해야 함(value 또는 urlPatterns의 값만 적는 경우는 생략 가능)
 public class ServletEx08 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private int i = 0; -> 필드를 여러 메소드에서 공유하며 사용하는 것은 지양(멀티스레드에서 하나의 변수나 객체를 공유할 때 생기는 문제가 발생함)
