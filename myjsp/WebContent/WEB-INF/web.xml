@@ -62,4 +62,26 @@
   	<servlet-name>Servlet9</servlet-name>
   	<url-pattern>/ex09</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ServletMy</servlet-name>
+  	<servlet-class>chap17.My_Servlet</servlet-class>
+  	<init-param>
+  		<param-name>dburl</param-name>
+  		<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbid</param-name>
+  		<param-value>c##mydbms</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbpw</param-name>
+  		<param-value>admin</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletMy</servlet-name>
+  	<url-pattern>/My</url-pattern>
+  </servlet-mapping>
 </web-app>
