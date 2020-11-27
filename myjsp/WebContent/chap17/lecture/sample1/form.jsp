@@ -16,14 +16,24 @@
 </head>
 <body>
 <div class="container">
+	
+	<c:if test="${not empty sessionScope.message }">
+		<div class="alert alert-danger" role="alert">
+  			아이디와 비밀번호가 일치합니다.
+		</div>
+	</c:if>
+	<c:remove var="message" scope="session"/>
 	<h1>회원가입</h1>
 	<form action="<%=request.getContextPath() %>/sample1/process" method="post">
 		id : <input type="text" name="id" value="${formId }"/> <br />
 		pw : <input type="text" name="pw" value="${formPw }"/> <br />
-		<input type="submit" value="가입" />
+		<input type="submit" value="가입" /> <hr />
 	</form>
 	<c:remove var="formId" scope="session"/>
 	<c:remove var="formPw" scope="session"/>
+	
+	
+	
 </div>
 </body>
 </html>

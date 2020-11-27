@@ -50,10 +50,11 @@ public class SignUpProcess extends HttpServlet {
 		
 		//가입 정보가 유효하지 않으면
 		else {
-			//form으로 redirect form으로 redirect
+			//form으로 redirect
 			HttpSession session = request.getSession();
 			session.setAttribute("formId", id);
 			session.setAttribute("formPw", pw); //유효하지 않아서 되돌아가도 적어둔 id와 pw를 session에 attribute로 담아둬서 재사용 가능
+			session.setAttribute("message", "아이디와 패스워드가 일치합니다.");
 			
 			String path = request.getContextPath() + "/sample1/signup";
 			response.sendRedirect(path);
