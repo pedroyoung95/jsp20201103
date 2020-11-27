@@ -29,7 +29,7 @@ public class ServletEx13 extends HttpServlet {
 		System.out.println("ex13 열심히 일함~~~");
 		//response객체의 redirect로 보내는 방법
 		//String path = "ex12"; //상대경로로 보냄
-		//redirect는 응답객체이므로, 브라우저 입장이기 때문에 context root(최초로 /가 나타나는 곳)이 '/myjsp'이므로 절대경로는
+		//redirect는 응답객체이므로, 브라우저 입장이기 때문에 context root(최초로 /가 나타나는 곳)이 'localhost:8080/~'이므로 절대경로는
 		//String path = "/myjsp/ex12";
 		//브라우저는 어떤 것이 context root인지 모르기 때문		
 		String path = request.getContextPath() + "/ex12"; //root가 어디가 될지 모르므로, getContextPath()메소드를 사용하는 것이 안전
