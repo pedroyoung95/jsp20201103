@@ -21,6 +21,12 @@ $(function() {
 		$(this).hide();
 		$("#submit-btn").removeAttr("hidden");
 	});
+	$("#remove-btn").click(function() {
+		var c = confirm("삭제하시겠습니까?");
+		if(c) {
+			location.href="remove?idx=${param.idx}"
+		}
+	});
 });
 </script>
 </head>
@@ -41,6 +47,8 @@ $(function() {
          class="btn btn-secondary" />
   </form>
   <button class="btn btn-secondary" id="modify-btn">수정</button>
+  <br />
+  <button class="btn btn-danger" id="remove-btn">삭제</button>
 </div>
 </body>
 </html>
