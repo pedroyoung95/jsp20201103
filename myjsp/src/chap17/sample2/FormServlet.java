@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +17,10 @@ import chap05.Post;
 /**
  * Servlet implementation class FormServlet
  */
-@WebServlet("/FormServlet")
+@WebServlet("/sample2/form")
 public class FormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private List<Post> list;   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,7 +31,16 @@ public class FormServlet extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
-    	List<Post> list = new ArrayList<>();
+    	ServletContext application = getServletContext();
+    	Object obj = application.getAttribute("posts");
+    	
+    	if(obj == null) {
+    		list = new ArrayList<>();
+    		application.setAttribute("posts", list);
+    	} else {
+    		list = (List<Post>) obj;
+    	}
+    	
     	super.init();
     }
 
@@ -50,14 +60,16 @@ public class FormServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
+		
 		if(title != null && body != null && !title.isEmpty() && !body.isEmpty()) {
 			//잘 작성되었으면 db에 저장(임시로 application에 저장)
 			Post post = new Post();
 			post.setTitle(title);
 			post.setBody(body);
 			list.add(post);
+			
 			//목록을 보여주는 servlet으로 redirect
-			response.sendRedirect(request.getContextPath() + "/sample2/lsit");
+			response.sendRedirect(request.getContextPath() + "/sample2/list");
 		} else {
 			//잘 작성되지 않았으면
 			
