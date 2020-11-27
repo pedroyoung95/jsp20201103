@@ -18,13 +18,20 @@ import chap05.Post;
 @WebServlet("/sample2/detail")
 public class DetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private List<Post> list;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public DetailServlet() {
         super();
         // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init() throws ServletException {
+    	ServletContext application = getServletContext();
+    	list =  (List<Post>)application.getAttribute("posts");
+    	super.init();
     }
 
 	/**
@@ -34,8 +41,7 @@ public class DetailServlet extends HttpServlet {
 		//list에서 idx에 해당하는 post를 꺼내서 
 		int idx = Integer.valueOf(request.getParameter("idx"));
 		
-		ServletContext application = getServletContext();
-    	List<Post> list =  (List<Post>)application.getAttribute("posts");
+		
     	
     	Post post = list.get(idx);
 		//request에 attribute로 담아서
