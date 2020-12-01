@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Server01
+ * Servlet implementation class Sevlet02
  */
-@WebServlet("/filter/ex1")
-public class Servlet01 extends HttpServlet {
+@WebServlet("/filter/ex2")
+public class Sevlet02 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet01() {
+    public Sevlet02() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,7 @@ public class Servlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("필터 예제 서블릿1 doGet 메소드");
-		//필터 파일에 doFilter가 먼저 실행되고 나서 서블릿 메소드 실행됨
+		System.out.println("필터 예제 서블릿 2 doGet 메소드");
 	}
 
 	/**

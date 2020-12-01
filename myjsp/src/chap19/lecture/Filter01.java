@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class Filter01
  */
-@WebFilter("/filter/ex1")
+//@WebFilter("/filter/ex1")
 public class Filter01 implements Filter {
 
     /**
@@ -39,6 +39,7 @@ public class Filter01 implements Filter {
 		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
+		//현 필터에서 작업을 멈추려면 chain.doFilter를 실행시키지 않으면 됨. 다음 필터나 서블릿으로 작업이 넘어가지 않게 됨.
 	}
 
 	/**
