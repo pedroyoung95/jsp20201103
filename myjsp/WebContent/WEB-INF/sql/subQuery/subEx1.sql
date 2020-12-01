@@ -130,6 +130,3 @@ HAVING AVG(salary) = (SELECT MIN(AVG(salary)) FROM employee GROUP BY job);
 --17¹ø
 SELECT ename FROM employee 
 WHERE eno in (SELECT manager FROM employee);
-
-SELECT * FROM employee;
-
