@@ -17,5 +17,7 @@ DESC dept20;
 
 --칼럼 제거
 --ALTER TABLE table_name DROP col_name;
+--2개 이상의 컬림이 존재하는 테이블에서만 삭제 가능
+--한 번에 하나의 컬럼만 삭제
 ALTER TABLE dept20 DROP COLUMN  ename;
 DESC dept20;
