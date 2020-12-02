@@ -35,4 +35,5 @@ SELECT * FROM dept_copy;
 
 CREATE TABLE emp_copy
 AS
-SELECT eno, ename, job, hiredate, dno, FROM employee WHERE 0=1;
+SELECT eno, ename, job, hiredate, dno FROM employee WHERE 0=1;
+SELECT * FROM emp_copy;
