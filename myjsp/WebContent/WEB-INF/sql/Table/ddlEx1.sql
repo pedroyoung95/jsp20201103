@@ -24,7 +24,7 @@ CREATE TABLE dept(
     dno NUMBER(2), --숫자 길이 총 2자리까지 저장
     dname VARCHAR2(14), --가변길이 문자열 14byte까지
     loc VARCHAR2(13)); --가변길이 문자열 13byte까지
-    
+DESC dept;
 SELECT * FROM dept;
 
 
@@ -36,7 +36,8 @@ CREATE TABLE dept_second
 AS 
 SELECT *
 FROM department;
-
+DESC dept_second;
+DESC department;
 SELECT * FROM dept_second;
 
 CREATE TABLE dept20
@@ -44,13 +45,15 @@ AS
 SELECT eno, ename, salary *12 annsal
 FROM employee
 WHERE dno = 20;
-
+DESC dept20; --annsal의 데이터 타입은 sql이 자동으로 설정해줬음
 SELECT * FROM dept20;
 
 CREATE TABLE dept_third
 AS
 SELECT dno, dname
-FROM DEPT
-WHERE 0=1;
+FROM dept
+WHERE 0=1; --WHERE절에 선택된 record가 없으므로 테이블 구조만 복사하게 됨(record가 선택되지 안하게 되는 조건절이면 다 가능)
 
+DESC dept_third;
+DESC dept;
 SELECT * FROM dept_third;
