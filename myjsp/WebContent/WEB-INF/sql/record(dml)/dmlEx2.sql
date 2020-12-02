@@ -38,3 +38,66 @@ INSERT INTO data_type_ex2(vchar2)VALUES('한글날'); --현 sql프로그램은 �
 COMMIT;
 SELECT * FROM data_type_ex2;
 
+--날짜
+--DATE
+CREATE TABLE data_type_ex3(
+    date1 DATE
+);
+SELECT sysdate FROM DUAL;
+INSERT INTO data_type_ex3 VALUES(sysdate);
+INSERT INTO data_type_ex3 VALUES('2020/11/01'); --프로그램 혹은 버전 마다 받을 수 있는 날짜 형식이 다를 수 있음
+INSERT INTO data_type_ex3 VALUES(TO_DATE('2020-11-10', 'YYYY-MM-DD'));
+INSERT INTO data_type_ex3 VALUES(TO_DATE('2020-09-09 17:33:22', 'YYYY-MM-DD HH24:MI:SS'));
+SELECT * FROM data_type_ex3;
+SELECT TO_CHAR(date1, 'YYYY-MM-DD HH24:MI:SS')
+FROM data_type_ex3; --시간을 안 적은 값은 00:00:00으로 입력됨
+COMMIT;
+
+INSERT INTO emp_copy
+VALUES(7000, 'CANDY', 'MANAGER', '2012/05/01', 10);
+SELECT * FROM emp_copy;
+
+INSERT INTO emp_copy
+VALUES(7010, 'TOM', 'MANAGER', TO_DATE('2012, 05, 01' , 'YYYY, MM, DD'), 20);
+SELECT * FROM emp_copy;
+
+INSERT INTO emp_copy
+VALUES(7020, 'JERRY', 'SALESMAN', SYSDATE, 30);
+SELECT * FROM emp_copy;
+COMMIT;
+
+--혼자해보기
+
+--1번
+CREATE TABLE emp_insert
+AS
+SELECT * FROM employee WHERE 0=1;
+DESC emp_insert;
+SELECT * FROM emp_insert;
+
+--2번
+INSERT INTO emp_insert
+VALUES(1, 'JEONGTY', 'STUDENT', '', SYSDATE, 2700, 230, 10);
+SELECT * FROM emp_insert;
+
+--3번
+INSERT INTO emp_insert
+VALUES(2, 'AHNHJ', 'STUDENT', NULL, SYSDATE-1,  1150, NULL,20);
+SELECT * FROM emp_insert;
+
+--4번
+DROP TABLE emp_copy;
+CREATE TABLE emp_copy 
+AS
+SELECT * FROM employee;
+DESC emp_copy;
+SELECT * FROM emp_copy;
+
+DROP TABLE dept_copy;
+CREATE TABLE dept_copy
+AS
+SELECT * FROM department WHERE 0=1;
+SELECT * FROM dept_copy;
+INSERT INTO dept_copy
+SELECT * FROM department; --INSERT INTO문 뒤에 SELEECT문을 이어 작성하면 테이블 내용 자체를 추가
+SELECT * FROM dept_copy;
