@@ -105,6 +105,7 @@ public class TransactionEx1Servlet extends HttpServlet {
 						+ "WHERE name='captain2'";
 		
 		//없는 사람한테 돈이 이체되는 문제를 막고자 해당 쿼리 실행되어도 rollback되도록 코드 작성
+		//다른 오류사항이 발생했을 때도 해당 오류사항이 발생할 경우에 rollback되도록 코드 작성
 		try {		
 		//3.statement 생성
 		Statement stmt = con.createStatement();			
