@@ -2,7 +2,7 @@
 --not null : 컬럼의 값에 NULL은 안 됨
 --unique : 유일한 값만 저장
 --check : 지정된 값(범위)만 가능
---foreigh key(외래 키, 참조 키) : 다른 table에 저장되어 있는 값만 가능
+--foreign key(외래 키, 참조 키) : 다른 table에 저장되어 있는 값만 가능
 --primary key(주요 키, 키) : not null + unique 를 결합한 형태
 --테이블 생성시 데이터 타입 다음에 제약사항을 적으면 됨
 
@@ -56,3 +56,19 @@ INSERT INTO const03 (name) VALUES('c'); --NULL은 CHECK과는 무관하므로 �
 SELECT * FROM const03;
 
 COMMIT;
+
+--제약사항 여러 개 사용 : 제악사항 키워드를 띄어쓰기로 나열해서 작성
+CREATE TABLE const04(
+    email VARCHAR2(30) NOT NULL UNIQUE CHECK(email LIKE '%@%'),
+    name VARCHAR2(30)
+);
+
+INSERT INTO const04 (email, name)
+VALUES(NULL,  'a');
+INSERT INTO const04(email, name)
+VALUES('a', 'b');
+INSERT INTO const04(email, name)
+VALUES('a@g', 'c');
+INSERT INTO const04(email, name)
+VALUES('a@g', 'd');
+SELECT * FROM const04;
