@@ -30,7 +30,7 @@ FOREIGN KEY(dno) REFERENCES dept_copy(dno);
 
 ALTER TABLE emp_copy
 MODIFY ename CONSTRAINT emp_copy_ename_nn NOT NULL; 
---NOT NULL, UNIQUE 제약 사항은 ADD나 MODIFY다음에 칼럼명을 작성하고 제약 사항을 마지막에 작성
+--NOT NULL, UNIQUE 제약 사항은 ADD나 MODIFY다음에 칼럼명을 작성하고 제약 사항 타입을 마지막에 작성
 
 --제약 사항 지우기
 ALTER TABLE emp_copy
