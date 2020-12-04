@@ -3,13 +3,9 @@ package chap17.sample3;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,16 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import chap05.Post;
 
 /**
- * Servlet implementation class MainServlet
+ * Servlet implementation class ViewServlet
  */
-@WebServlet("/sample3/post/main")
-public class MainServlet extends HttpServlet {
+@WebServlet("/sample3/post/detail")
+public class ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainServlet() {
+    public ViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,23 +33,18 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//list <- select sql
-		List<Post> posts = getPosts(); 
+		String id = request.getParameter("id");
+		Post post = getPost(id);
 		
-		//request setAttribute(list)하기
-		request.setAttribute("posts", posts);
+		request.setAttribute("post", post);		
 		
-		//forward
-		String path = "/WEB-INF/view/chap17/main.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+		String path = "/WEB-INF/view/chap17/detail.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
-
-	private List<Post> getPosts() {
-		List<Post> list = new ArrayList<>();
+	private Post getPost(String id) {
+		String sql = "SELECT title, body FROM post WHERE id=" + id; 
 		
-		String sql = "SELECT id, title FROM post ORDER BY id DESC"; //post테이블에서 id, title을 id의 내림차순으로 select
-
+		Post p = new Post();
 		try {		
 		//1.드라이버 로딩
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -70,12 +61,11 @@ public class MainServlet extends HttpServlet {
 		//4.쿼리 실행
 		ResultSet rs = stmt.executeQuery(sql);
 		
-		//5.결과 처리		
+		//5.결과 처리	
+		
 		while(rs.next()) {
-			Post p = new Post();
-			p.setId(rs.getInt(1));
-			p.setTitle(rs.getString(2));
-			list.add(p);
+			p.setTitle(rs.getString(1));
+			p.setBody(rs.getString(2));			
 		}
 		
 		//6.statement, 연결 닫기
@@ -84,7 +74,7 @@ public class MainServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return p;
 	}
 
 	/**

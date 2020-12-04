@@ -17,30 +17,10 @@
 <body>
 <div class="container">
 	<h1>방명록</h1>
-	<form action="<%= request.getContextPath()%>/sample3/post/add" method="post">
-		제목 : <input type="text" name="title" /> <br />
-		<textarea name="body" id="" cols="30" rows="5"></textarea><br />
-		<input type="submit" class="btn btn-primary" value="등록"/>
+	<form action="" method="get">
+		제목 : <input type="text" name="title" readonly value="${post.title }"/> <br />
+		<textarea name="body" id="" cols="30" rows="5" readonly>${post.body }</textarea><br />
 	</form>
-</div>
-<hr />
-<div class="container">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${posts }" var="post" >
-				<tr>
-					<td>${post.id }</td>
-					<td><a href="<%= request.getContextPath()%>/sample3/post/detail?id=${post.id }">${post.title }</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
 </div>
 </body>
 </html>

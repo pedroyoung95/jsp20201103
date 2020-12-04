@@ -28,7 +28,7 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//list.jksp forward
+		//list.jsp forward
 		String path = "/chap17/lecture/sample2/list.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
