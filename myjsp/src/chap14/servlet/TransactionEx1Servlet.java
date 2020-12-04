@@ -111,7 +111,7 @@ public class TransactionEx1Servlet extends HttpServlet {
 		Statement stmt = con.createStatement();			
 		//4.쿼리 실행
 		int row = stmt.executeUpdate(sql);	
-		//executeUpdate메소드는 영향을 미치는 record의 개수를 int타입으로 리턴함
+		//executeUpdate메소드는 영향을 미치는(새 데이터를 추가 or 값 변경 등) row의 개수를 int타입으로 리턴함
 		//목적에 따라 if조건문으로 con.rollback()메소드를 실행시키면 목적에 맞지 않는 문제에 대해서 rollback하게 됨
 		if(row == 0 ) {
 			con.rollback();
