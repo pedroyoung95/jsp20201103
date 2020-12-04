@@ -11,7 +11,7 @@ SELECT * FROM user_constraints
 WHERE table_name='EMP_COPY'; --테이블 복사해도 제약 사항은 복사 안 됨
 
 ALTER TABLE emp_copy
-ADD PRIMARY KEY(eno); --키 제약 사항, CHECK 제약 사항은 ALTER TABLE ~ ADD로 제약 사항을 추가
+ADD PRIMARY KEY(eno); --키 제약 사항, CHECK 제약 사항은 ALTER TABLE ~ ADD로 제약 사항을 추가(ADD만 사용 가능)
 
 DROP TABLE dept_copy;
 CREATE TABLE dept_copy
@@ -29,7 +29,8 @@ ADD CONSTRAINT emp_copy_dno_fk
 FOREIGN KEY(dno) REFERENCES dept_copy(dno);
 
 ALTER TABLE emp_copy
-MODIFY ename CONSTRAINT emp_copy_ename_nn NOT NULL; --NOT NULL, UNIQUE 제약 사항은 MODIFY 사용
+MODIFY ename CONSTRAINT emp_copy_ename_nn NOT NULL; 
+--NOT NULL, UNIQUE 제약 사항은 ADD나 MODIFY다음에 칼럼명을 작성하고 제약 사항을 마지막에 작성
 
 --제약 사항 지우기
 ALTER TABLE emp_copy
