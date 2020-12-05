@@ -5,3 +5,8 @@ CREATE TABLE post(
     body VARCHAR2(4000),
     PRIMARY KEY(id)
 );
+SELECT * FROM post;
+--UPDATE post 
+--SET title='ttt', body='ttttttttt'
+--WHERE id=3;
+--ROLLBACK;
