@@ -47,7 +47,7 @@ public class UpdateServlet extends HttpServlet {
 			String body = request.getParameter("body");
 			
 			Post post = new Post();
-			//수정해서 입력한 값을 Post객채에 set하고, db쿼리문으로 update할 때는 그 set한 값을 get으로 불러와서 db에 업데이트 시키면 됨
+			//수정해서 입력한 값을 Post객채에 set하고, 그 set한 값을 get으로 불러와서 그 값을 db에 업데이트 시키면 됨
 			post.setId(Integer.parseInt(id));
 			post.setTitle(title);
 			post.setBody(body);
