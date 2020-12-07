@@ -28,17 +28,16 @@ $(function() {
 <c:url value="/sample3/post/remove" var="removeURL">
 	<c:param name="id" value="${post.id }"></c:param>
 </c:url>
-<c:url value="/sample3/post/modify" var="modifyURL">
-	<c:param name="id" value="${post.id }"></c:param>
-</c:url>
 
 <div class="container">
 	<h1>게시물 보기</h1>
-	<form action="">
-		제목 : <input type="text" value="${post.title }" readonly/> <br />
-		<textarea name="body" id="" cols="30" rows="5" readonly>${post.body }</textarea> <br />
+	<form action="<%=request.getContextPath() %>/sample3/post/update" method="post">
+		제목 : <input type="text" value="${post.title }" id="title-input" readonly name="title"/> <br />
+		<textarea name="body" id="body-textarea" cols="30" rows="5" readonly>${post.body }</textarea> <br />
+		<input type="text" hidden="" value="${post.id }" name="id"/> <br />
+		<input type="submit" id="submit-btn" hidden value="등록" class="btn btn-secondary" />
 	</form> 
-<a href="${modifyURL }" class="btn btn-secondary">수정</a>
+<button class="btn btn-warning" id="modify-btn">수정</button>
 <br />
 <a href="${removeURL }" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
 </div>

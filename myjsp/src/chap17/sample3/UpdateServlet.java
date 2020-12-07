@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,16 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import chap05.Post;
 
 /**
- * Servlet implementation class RemoveServlet2
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet(name = "RemoveServlet2", urlPatterns = "/sample3/post/remove")
-public class RemoveServlet2 extends HttpServlet {
+@WebServlet("/sample3/post/update")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RemoveServlet2() {
+    public UpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,21 +33,37 @@ public class RemoveServlet2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");		
-		
-		//delete하는 jdbc
-		remove(id);
-		
-		response.sendRedirect(request.getContextPath() + "/sample3/post/main");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			request.setCharacterEncoding("utf-8");
+			String id = request.getParameter("id");
+			String title = request.getParameter("title");
+			String body = request.getParameter("body");
+			
+			Post post = new Post();
+			//수정해서 입력한 값을 Post객채에 set하고, db쿼리문으로 update할 때는 그 set한 값을 get으로 불러와서 db에 업데이트 시키면 됨
+			post.setId(Integer.parseInt(id));
+			post.setTitle(title);
+			post.setBody(body);
+			
+			update(post);
+			
+			response.sendRedirect(request.getContextPath() + "/sample3/post/main");			
 	}
 	
-	private void remove(String id) {
+	private void  update(Post post) {
 		ResultSet rs = null;
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "c##mydbms";
 		String password = "admin";
-		String sql = "DELETE FROM post WHERE id=?";
+		String sql = "UPDATE post SET title=?, body=? WHERE id=?";
 		
 		// 1. class loading
 		try {
@@ -64,7 +79,9 @@ public class RemoveServlet2 extends HttpServlet {
 				PreparedStatement stmt = con.prepareStatement(sql);
 		) {			
 			// 3. statement			
-			stmt.setInt(1, Integer.parseInt(id));
+			stmt.setString(1, post.getTitle());
+			stmt.setNString(2, post.getBody());
+			stmt.setInt(3, post.getId());
 			
 			// 4. query
 			rs = stmt.executeQuery();
@@ -76,14 +93,6 @@ public class RemoveServlet2 extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
