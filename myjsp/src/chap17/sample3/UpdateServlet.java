@@ -87,7 +87,7 @@ public class UpdateServlet extends HttpServlet {
 			rs = stmt.executeQuery();
 			
 			// 5. resultset
-			//RemoveServlet, ModifySevlet은 db에서 받은 정보를 뷰쪽으로 넘길 필요X
+			//RemoveServlet, ModifySevlet, UpdateServlet은 db에서 받은 정보를 뷰쪽으로 넘길 필요X
 			//db 쿼리문을 실행시키는 기능만 이뤄지면 되므로, Post클래스의 객체가 필요X
 			
 		} catch (Exception e) {
