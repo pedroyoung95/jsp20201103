@@ -66,12 +66,7 @@ public class UpdateServlet extends HttpServlet {
 		String sql = "UPDATE post SET title=?, body=? WHERE id=?";
 		
 		// 1. class loading
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		//ContextServlet Listener에 jdbc 드라이버 로딩이 들어가있으므로, 
 		
 		try(
 				// 2. connection

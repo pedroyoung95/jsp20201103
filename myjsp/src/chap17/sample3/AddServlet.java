@@ -61,7 +61,7 @@ public class AddServlet extends HttpServlet {
 		int row = 0;
 		try {		
 		//1.드라이버 로딩
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 		//2.연결 생성
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
