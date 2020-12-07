@@ -7,6 +7,6 @@ CREATE TABLE post(
 );
 SELECT * FROM post;
 --UPDATE post 
---SET title='ttt', body='ttttttttt'
+--SET body='ttttttttt'
 --WHERE id=3;
 --ROLLBACK;

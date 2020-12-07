@@ -45,8 +45,7 @@ public class ModifyServelt2 extends HttpServlet {
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
-		
-		if()
+
 		String sql = "UPDATE post SET title=?, body=? WHERE id=" + id;
 		
 		try {		

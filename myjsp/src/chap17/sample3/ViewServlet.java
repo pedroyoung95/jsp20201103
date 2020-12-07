@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -41,10 +42,15 @@ public class ViewServlet extends HttpServlet {
 		String path = "/WEB-INF/view/chap17/detail.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
+	
 	private Post getPost(String id) {
 		String sql = "SELECT title, body FROM post WHERE id=" + id; 
 		
 		Post p = new Post();
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
 		try {		
 		//1.드라이버 로딩
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -53,26 +59,42 @@ public class ViewServlet extends HttpServlet {
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "c##mydbms";
 		String password = "admin";
-		Connection con = DriverManager.getConnection(url, user, password);
+		con = DriverManager.getConnection(url, user, password);
 		
 		//3.statement 생성
-		Statement stmt = con.createStatement();	
+		stmt = con.createStatement();	
 		
 		//4.쿼리 실행
-		ResultSet rs = stmt.executeQuery(sql);
+		rs = stmt.executeQuery(sql);
 		
 		//5.결과 처리	
 		
-		while(rs.next()) {
+		if(rs.next()) {
 			p.setTitle(rs.getString(1));
 			p.setBody(rs.getString(2));			
 		}
-		
-		//6.statement, 연결 닫기
-		stmt.close();
-		con.close();
+	
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			//6.statement, 연결 닫기
+			if(stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
 		}
 		return p;
 	}
