@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class MainServlet
@@ -59,10 +60,12 @@ public class MainServlet extends HttpServlet {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 		//2.연결 생성
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password = "admin";
-		Connection con = DriverManager.getConnection(url, user, password);
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String user = "c##mydbms";
+//		String password = "admin";
+//		Connection con = DriverManager.getConnection(url, user, password);
+		
+		Connection con = DBUtil.getConnection();
 		
 		//3.statement 생성
 		Statement stmt = con.createStatement();	

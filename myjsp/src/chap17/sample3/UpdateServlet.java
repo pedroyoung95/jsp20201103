@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class UpdateServlet
@@ -60,9 +61,6 @@ public class UpdateServlet extends HttpServlet {
 	private void  update(Post post) {
 		ResultSet rs = null;
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password = "admin";
 		String sql = "UPDATE post SET title=?, body=? WHERE id=?";
 		
 		// 1. class loading
@@ -70,7 +68,7 @@ public class UpdateServlet extends HttpServlet {
 		
 		try(
 				// 2. connection
-				Connection con = DriverManager.getConnection(url, user, password);
+				Connection con = DBUtil.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
 		) {			
 			// 3. statement			

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class ViewServlet
@@ -49,9 +50,9 @@ public class ViewServlet extends HttpServlet {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password = "admin";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String user = "c##mydbms";
+//		String password = "admin";
 		String sql = "SELECT id, title, body FROM post WHERE id=?";
 
 		try {
@@ -59,7 +60,8 @@ public class ViewServlet extends HttpServlet {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			// 2. connection
-			con = DriverManager.getConnection(url, user, password);
+			//con = DriverManager.getConnection(url, user, password);
+			con = DBUtil.getConnection();
 			// 3. statement
 			stmt = con.prepareStatement(sql);
 			stmt.setInt(1, Integer.parseInt(id));
