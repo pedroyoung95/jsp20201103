@@ -21,30 +21,26 @@ $(function() {
 		$(this).hide();
 		$("#submit-btn").removeAttr("hidden");
 	});
-	$("#remove-btn").click(function() {
-		var c = confirm("삭제하시겠습니까?");
-		if(c) {
-			location.href="remove?idx=${param.idx}"
-		}
-	});
 });
 </script>
 </head>
 <body>
-<c:url value="/sample3/post/modify" var="modifyUrl" >
-  <c:param name="id">${post.id }</c:param>
+<c:url value="/sample3/post/remove" var="removeURL">
+	<c:param name="id" value="${post.id }"></c:param>
+</c:url>
+<c:url value="/sample3/post/modify" var="modifyURL">
+	<c:param name="id" value="${post.id }"></c:param>
 </c:url>
 
 <div class="container">
-	<h1>방명록</h1>
-	<form action="${modifyUrl }" method="post">
-		제목 : <input type="text" id="title-input" name="title" readonly value="${post.title }"/> <br />
-		<textarea name="body" id="body-textarea" cols="30" rows="5" readonly>${post.body }</textarea><br />
-		<input type="submit" id="submit-btn" hidden value="등록" class="btn btn-secondary" />
-	</form>
-	<button class="btn btn-secondary" id="modify-btn">수정</button>
-  	<br />
-  	<button class="btn btn-danger" id="remove-btn">삭제</button>
+	<h1>게시물 보기</h1>
+	<form action="">
+		제목 : <input type="text" value="${post.title }" readonly/> <br />
+		<textarea name="body" id="" cols="30" rows="5" readonly>${post.body }</textarea> <br />
+	</form> 
+<a href="${modifyURL }" class="btn btn-secondary">수정</a>
+<br />
+<a href="${removeURL }" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
 </div>
 </body>
 </html>

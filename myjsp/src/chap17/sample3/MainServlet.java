@@ -72,7 +72,9 @@ public class MainServlet extends HttpServlet {
 		
 		//5.결과 처리		
 		while(rs.next()) {
-			Post p = new Post();
+			Post p = new Post(); 
+			//MainServlet, ViewServlet은 화면에 띄워주는 view역할 jsp에게  db에서 받은 정보를 건내주기 위해 Post클래스의 객체를 이용해야 함
+			//Post클래스의 객체에다가 db에서 받은 값을 set해주고 그걸 view역할 jsp에게 전달
 			p.setId(rs.getInt(1));
 			p.setTitle(rs.getString(2));
 			list.add(p);
